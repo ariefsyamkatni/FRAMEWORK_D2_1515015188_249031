@@ -5,21 +5,22 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
-use App\matakuliah;
 
-class matakuliahController extends Controller
+use App\Matakuliah;
+
+class MatakuliahController extends Controller
 {
     public function awal()
     {
-    	return "matakuliah";
+        return view('matakuliah.awal',['data'=>matakuliah::all()]);
     }
     public function tambah()
     {
-    	return $this->simpan();
+        return view('matakuliah.tambah');
     }
-    public function simpan()
+    public function simpan(Request $input)
     {
-    	$matakuliah = new matakuliah();
+        $matakuliah = new matakuliah();
         $matakuliah->title =$input->title;
         $matakuliah->keterangan =$input->keterangan;
         $informasi=$matakuliah->save() ? 'Berhasil simpan data':'gagal simpan data';
@@ -49,4 +50,5 @@ class matakuliahController extends Controller
         $informasi=$matakuliah->delete() ? 'Berhasil hapus data':'gagal hapus data';
         return redirect('matakuliah')->with(['informasi'=>$informasi]);
     }
+
 }
