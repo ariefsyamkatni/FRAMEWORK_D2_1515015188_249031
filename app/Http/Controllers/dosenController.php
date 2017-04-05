@@ -21,9 +21,9 @@ class dosenController extends Controller
 public function simpan()
 {
 	$dosen = new dosen();
-	$dosen->nama = 'Muhammad Asyharul';
-	$dosen->nip = '001';
-	$dosen->alamat = 'perjuangan 3';
+	$dosen->nama = 'jokowidodo';
+	$dosen->nip = '1514512512';
+	$dosen->alamat = 'kaswari';
 	$dosen->pengguna_id = '001';
 	$dosen->save();
 	return "data dengan nama {$dosen->nama} telah disimpan";
